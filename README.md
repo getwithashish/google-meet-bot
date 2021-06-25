@@ -15,3 +15,12 @@ More features are to be added.
 		ii. Msg based (telegram,whatsapp,discord and so on)
 3. Notification - Send notifications to discord, telegram, whatsapp and son on
 			when the specified keywords are being said in the meeting
+
+
+Login credentials to your google account is to be entered in the credentials.txt file.
+If you email is admin@admin.com and your password is Getin, then credentials.txt should be of the form
+email=admin@admin.com
+pass=Getin
+
+
+

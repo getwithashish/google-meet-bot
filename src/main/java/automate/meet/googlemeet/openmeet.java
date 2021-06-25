@@ -1,9 +1,9 @@
 package automate.meet.googlemeet;
 
-import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -24,15 +24,36 @@ class settingup {
     WebDriver driver;
     
     @RequestMapping(value = "startmeet")
-    public void setupmeet() throws IOException, InterruptedException {
+    public void setupmeet() throws Exception {
         geckosetup();
         
-        BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter email: ");
-        String email=in.readLine();
-        System.out.println("Enter password: ");
-        String pass=in.readLine();
-        geturl(email,pass);
+        File cred=new File("credentials.txt");
+        if(cred.canRead()){
+            String email="";
+            String pass="";
+            try{
+                FileReader fr=new FileReader(cred);
+                Scanner sc=new Scanner(fr);
+                String first=sc.nextLine();
+                email=first.substring(first.indexOf("=")+1).trim();
+                System.out.println(email);
+                String second=sc.nextLine();
+                pass=second.substring(second.indexOf("=")+1).trim();
+                System.out.println(pass);
+            }
+            catch(Exception e){
+                System.err.println("credentials.txt should contain email and password of your google account.\nThe first line of credentials.txt should contain email=<your_email>\nThe second line of credentials.txt should contain pass=<your_password>");
+                System.err.println("For example, if your email is admin@admin.com and your password is Getin, then credentials.txt should contain these two lines");
+                System.err.println("email=admin@admin.com");
+                System.err.println("pass=Getin"); 
+            }
+            geturl(email,pass);
+        }
+        else{
+            throw new Exception("credentials.txt is not readable. Make this file readable.");
+        }
+        
+        
     }
 
     private void geckosetup() throws IOException {
