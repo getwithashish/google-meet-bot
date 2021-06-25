@@ -18,8 +18,11 @@ More features are to be added.
 
 
 Login credentials to your google account is to be entered in the credentials.txt file.
-If you email is admin@admin.com and your password is Getin, then credentials.txt should be of the form
+
+If your email is admin@admin.com and your password is Getin, then credentials.txt should be of the form
+
 email=admin@admin.com
+
 pass=Getin
 
 
