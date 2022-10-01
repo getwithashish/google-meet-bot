@@ -1,13 +1,14 @@
-Bot for attending google meet.
+# Google Meet Bot powered by Java
 
+### Bot for attending google meet.
 
 This bot works on linux. Small tweaks can make this bot work on windows as well.
 This bot works on top of firefox. 
 
-You should download and install firefox on your own. 
-Place the folder containing the firefox binary along with these files.
+- Download and install firefox. 
+- Place the folder containing the firefox binary along with these files.
 
-More features are to be added.
+Features to be added:
 
 1. Login - To be made available from external files
 2. Schedule - Two options are to be created:
